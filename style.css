@@ -1,0 +1,265 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "poppins",sans-serif;
+}
+
+body {
+    background-image: url('https://t3.ftcdn.net/jpg/09/63/20/10/360_F_963201035_IpEX84fk82nWgZl8NSFEqrbH9srYqdZ4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+.location {
+    padding: 8px 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: rgb(18, 41, 157);
+    background-color: blanchedalmond;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 120px;
+    margin-top: 8px;
+    height: auto;
+    font-weight: 700;
+    font-size:xx-large;
+    color: blanchedalmond;
+}
+
+nav .logo {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+
+nav ul li{
+    position:relative;
+}
+nav ul li a{
+    color:blanchedalmond;
+    display: block;
+    margin: 0 15px;
+    font-weight: 600;
+    padding: 8px 18px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+
+nav ul li a:hover{
+    background:rgb(15, 8, 61);
+}
+
+nav ul li a:active{
+    background: #675cff;
+    color:blanchedalmond;
+}
+
+.hamburger {
+    display: none;
+    height: fit-content;
+    cursor: pointer;
+    padding:3px 8px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.hamburger:hover{
+    background:#fefefe;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 2px;
+    margin: 6px 0;
+    background: #212526;
+}
+
+@media only screen and (max-width: 1100px){
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 90%;
+        padding: 10px 20px;
+    }
+    header .logo {
+        display: none; 
+    }
+    nav {
+        position: absolute;
+        left: -300px;
+        top: 0;
+        z-index:999;
+        width:280px;
+        height: 100vh;
+        background-color: #0c3c6a6b;
+        transition: left 0.2s ease;
+        box-shadow: 2px 0 20px 0 rgba(3, 83, 123, 0.05);
+        overflow-y:auto;
+        padding: 20px;
+    }
+    #nav-check:checked ~nav{
+        left: 0;
+    }
+    nav .logo{
+        display: block;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+    }
+    nav ul li a{
+        margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    nav ul{
+        display: block;
+        padding: 0 30px;
+        margin-top: 30px;
+        flex-direction: column;
+    }
+    .hamburger{
+        display: block;
+
+    } 
+}
+@media screen and (max-width: 800px)
+{
+    .panel,.container{
+        position: relative;
+        width: 100%;
+        top: initial;
+    }
+}
+@media screen and (max-width: 500px)
+{
+    html{
+        font-size: 12px;
+    }
+}
+@media screen and (max-height: 300px)
+{
+    .weather-app{  
+        min-height:40em;
+    }
+}
+
+h1,h3 {
+    font-weight: 400;
+}
+
+.weather-app {
+    min-height: 100vh;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    transition: 500ms;
+} 
+
+.weather-app::before{
+    content: "";
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.container {
+    position:absolute;
+    bottom: 20px; 
+    left: 20px; 
+    width: auto; 
+    display: flex;
+    font-weight: 700;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-bottom: 100px;
+}
+
+.date, .place, .time {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 1.2em; 
+}
+
+.container> div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.city-time,.temp.weather {
+    margin: 0em 1em;
+}
+
+.city-time {
+    padding-right: 5px; 
+}
+
+.city-time div {
+    margin-right: 5px; 
+}
+
+.city-time h1 {
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 3em;
+}
+
+.panel {
+    position: absolute;
+    width: 28%;
+    height: calc(100% - 50px); 
+    top: 0;
+    right: 0;
+    border-radius: 15px;
+    background: rgba(28, 15, 143, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+    z-index: 1;
+    padding: 3em 2em;
+    overflow-y: auto; 
+    margin-top: 80px;
+    padding-bottom: 20px; 
+}
+
+.panel ul li {
+    color: #ccc;
+    margin: 1.5em 0; 
+}
